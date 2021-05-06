@@ -1,0 +1,143 @@
+{% extends "base1.html" %}
+{% block content %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>FLOORER• learn Science through e-xploration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="./../static/css/style.css" />
+  <link rel="stylesheet" href="./../static/css/camera.css" />
+</head>
+
+<body class="camera-page" id="camera-page">
+  <div class="container-fluid">
+    <section class="section-video">
+        <div id="video-canvas">
+        </div>
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+  // Classifier Variable
+  let classifier;
+  // Model URL
+  let imageModelURL = 'https://teachablemachine.withgoogle.com/models/2ScK7Ya2p/';
+  //let imageModelURL = 'https://rb.gy/ddyonn';
+  let h1;
+  // Video
+  let video;
+  let flippedVideo;
+  // To store the classification
+  let label = "loading...";
+  //const video = document.getElementById('video');
+  document.getElementById('video');
+  // Create a webcam capture
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+      video.play();
+    })
+
+  // Load the model first
+  function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+  }
+
+  function setup() {
+    //text h1
+    let h1 = createElement('h3', "Identify Plant's Name");
+    h1.position(100,70);
+    h1.style("color", "#ffcd4f");
+    h1.style("padding", "20px");
+    h1.style("margin-top", "10px");
+    h1.style("margin-bottom", "10px");
+
+    //image girl hold tablet
+    let img = createImg("./../static/images/img (10).png");
+    img.position(120, 545);
+    img.size(320,320);
+
+    //image blob
+    let img1 = createImg("./../static/images/background/path2.png");
+    img1.position(980,450);
+    img1.size(400,400);
+    img1.style("z-index", "-1");
+    img1.style("opacity", "0.7");
+
+    //tablet
+    let img2 = createImg("./../static/images/tablet.png");
+    img2.position(350,170);
+    img2.size(900,700);
+    img2.style("z-index", "-1");
+
+    //let myCanvas = createCanvas(620, 580);
+    let myCanvas = createCanvas(747, 523);
+    myCanvas.parent('video-canvas');
+    //myCanvas.style('display', 'block');
+    myCanvas.position(430,252);
+
+    // Create the video
+    video = createCapture(VIDEO);
+    video.size(747, 478);
+    video.hide();
+
+    flippedVideo = ml5.flipImage(video);
+    // Start classifying
+    classifyVideo();
+  }
+
+  function draw() {
+    background('#6fbf2a');
+    // Draw the video
+    image(flippedVideo, 0, 0);
+
+    // Draw the label
+    fill(255);
+    textFont('Montserrat');
+    textSize(30);
+    //textAlign(LEFT);
+
+    //text.position(50,50);
+    text(label, width / 14, height - 14);
+  }
+
+  // Get a prediction for the current video frame
+  function classifyVideo() {
+    flippedVideo = ml5.flipImage(video)
+    classifier.classify(flippedVideo, gotResult);
+    flippedVideo.remove();
+
+  }
+
+  // When we get a result
+  function gotResult(error, results) {
+    // If there is an error
+    if (error) {
+      console.error(error);
+      return;
+    }
+    // The results are in an array ordered by confidence.
+    // console.log(results[0]);
+    label = results[0].label;
+    // Classifiy again!
+    classifyVideo();
+  }
+
+
+</script>
+{% endblock %}
+
+
+  </section>
+</div>
+
+
+{% endblock %}

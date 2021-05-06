@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FLOORER•learn Science through e-xploration</title>
+
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./../static/images/floorer.ico/apple-icon-76x76.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./../static/images/floorer.ico/favicon-96x96.png"
+    />
+
+<!--bootstrap-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Fonts & icons -->
+    <!--<link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Concert+One&family=Montserrat&family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />-->
+    <link
+  href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Comfortaa:wght@500&family=Concert+One&family=Dokdo&family=East+Sea+Dokdo&family=Montserrat:wght@500&display=swap"
+  rel="stylesheet"
+/>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <!-- CSS Files -->
+    <link
+      rel="stylesheet" href="./../static/css/style.css" />
+      <!-- CSS Files -->
+      <link
+        rel="stylesheet" href="./../static/css/footer.css" />
+    <!-- tukar file nanti -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Back to top button -->
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-mainbg sticky-top" >
+      <a class="navbar-brand navbar-logo" href="/"><img src="./../static/images/floorer.ico/FLOORER 1.png" width="130" height="30"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              ><i class="fas fa-home"></i>Home</a
+            > <!-- tukar javascript:void(0); to (file path : ./camera.html) -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/camera1"
+              ><i class="fas fa-camera"></i>Identify Me</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/know_me"
+              ><i class="far fa-images"></i>Know Me</a
+            >
+          </li>
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link" href="/know_me" id="navbarDropdown" role="button">
+              <i class="far fa-images"></i>Know Me</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/know_me">Action</a>
+                <div class="dropdown-divider"></div></li>
+                <a class="dropdown-item" href="/tree/hibiscus">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </ul>
+            </li>-->
+
+    <!--      <li class="nav-item">
+            <a class="nav-link" data-toggle="dropdown" href="/know_me" aria-expanded="true"><i class="far fa-images"></i>Know Me</a>
+            <ul class="dropdown-menu">
+              <li><a href="/allamanda">Allamanda</a></li>
+              <li><a href="/hibiscus">Hibiscus</a></li>
+              <li><a href="/antana">Lantana</a></li>
+              <li><a href="/rose">Rose</a></li>
+            </ul>
+          </li>
+-->
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="/plant_body"
+              ><i class="fas fa-tree"></i>Plant Body</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/game"
+              ><i class="fas fa-shapes"></i>Let's Play</a
+            >
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="fas fa-user"></i>My Profile</a
+            >
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/registration"
+              ><i class="fas fa-sign-in-alt"></i>teacher? log in here</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="container">
+      {%block content%}
+
+        {% block scripts %}
+        {% endblock %}
+
+      {%endblock%}
+
+    </div>
+
+    <!-- Footer -->
+    	<footer id="footer">
+    		<div class="container-fluid">
+    			<div class="row text-center text-xs-center text-sm-left text-md-left">
+    				<div class="col-xs-12 col-sm-12 col-md-12">
+    					<a href="/"><h2 class="display-3 text-center">FLOORER •</h2></a>
+    					<ul class="list-unstyled list-inline quick-links text-center">
+    						<li class="list-inline-item"><a href="/"><i class="fa fa-angle-double-right"></i>Home</a></li>
+    						<li class="list-inline-item"><a href="/camera"><i class="fa fa-angle-double-right"></i>Identify Me</a></li>
+    						<li class="list-inline-item"><a href="/know_me"><i class="fa fa-angle-double-right"></i>Know Me</a></li>
+    						<li class="list-inline-item"><a href="/plant_body"><i class="fa fa-angle-double-right"></i>Plant Body</a></li>
+    						<li class="list-inline-item"><a href="/game"><i class="fa fa-angle-double-right"></i>Let's Play</a></li>
+    					</ul>
+    				</div>
+
+    			</div>
+    			<div class="row">
+    				<div class="col-xs-12 col-sm-12 col-md-12">
+    					<ul class="list-unstyled list-inline social text-center">
+    						<li class="list-inline-item"><a href="https://web.facebook.com/izyanzayn/"><i class="fa fa-facebook"></i></a></li>
+    						<!--<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+    						<li class="list-inline-item"><a href="https://www.instagram.com/izyanzayn/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+    						<li class="list-inline-item"><a href="https://github.com/izyanzayn" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+    						<li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i>izyanzayn@gmail.com</a></li>
+    					</ul>
+    				</div>
+    				<hr>
+    			</div>
+    			<div class="row">
+    				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+              <p>the source for preschool learning focusing about plants on the internet available from anywhere for teachers, preschoolers and parents plus it is free!</p>
+    					<p class="h6">© All right Reversed.<a class="text-green ml-2" href="#" target="_blank">izyanzayn</a></p>
+    				</div>
+    				<hr>
+    			</div>
+    		</div>
+    	</footer>
+    	<!-- ./Footer -->
+
+    <!-- javascript files -->
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./../static/js/navbar.js"></script>
+
+  </body>
+</html>

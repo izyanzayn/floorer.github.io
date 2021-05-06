@@ -1,0 +1,165 @@
+{% extends "base1.html" %} {% block content %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>FLOORER• learn Science through e-xploration</title>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+      />
+
+      <!-- CSS Files -->
+      <link rel="stylesheet" href="./../static/css/plant_descriptions.css" />
+  </head>
+
+
+
+
+{% for row in rows %}
+<div class="plant-body-page">
+<img src="./../static/images/background/path6.png" class="path-image3" alt="blob">
+  <div class="wrapper-tree" id="wrapper-tree">
+      <ul class="flex-container" id="flex-container" >
+        <li class="flex-item"><a href="http://localhost:5000/tree/2"><img src="./../static/images/allamanda.png" alt="alamanda-page"></a></li>
+        <li class="flex-item"><a href="http://localhost:5000/tree/1"><img src="./../static/images/hibiscus.png" alt="hibiscus-page"></a></li>
+        <li class="flex-item"><a href="http://localhost:5000/tree/4"><img src="./../static/images/lantana.png" alt="lantana-camara-page"></a></li>
+        <li class="flex-item"><a href="http://localhost:5000/tree/3"><img src="./../static/images/rose.png" alt="rose-page"></a></li>
+</ul>
+</div>
+
+  <div class="page-header">
+    <!-- scrolltopbutton-->
+    <span><img src="./../static/images/up-resize.png" alt="back-to-top" id="btnScrollToTop"></span>
+
+    <div class="content-center">
+      <div class="row row-grid justify-content-between align-items-center">
+        <div class="col-lg-12 col-md-12">
+          <h1 class="text-color display-3 text-center">
+            KNOW ME : <br>
+            ({{row[0]}})
+            <br />
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- body content -->
+<!--<div class="container-fluid">-->
+  <div class="main-content">
+    <div class="content-center">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+
+        <div class="container">
+          <div class="table table-responsive-md table-hover">
+            <table class="table table-data2">
+              <thead>
+                <tr>
+                  <th style="width:90px">CONTENT</th>
+
+                  <th style="width:90px">DETAILS</th>
+                </tr>
+              </thead>
+
+
+              <tbody>
+                <tr>
+                  <th style="width:90px">NAME</th>
+                  <td>{{row[0]}}</td>
+                </tr>
+                <tr>
+                  <th style="width:90px">DESCRIPTIONS</th>
+                  <td>{{row[1]}}</td>
+                </tr>
+                <tr>
+                  <th style="width:90px">WHERE DO THEY LIVE?</th>
+                  <td>{{row[2]}}</td>
+                </tr>
+                <tr>
+                  <th style="width:90px">WHAT ARE THEIR CHARACTERISTICS</th>
+                  <td>{{row[3]}}</td>
+                </tr>
+                <tr>
+                  <th style="width:90px">FUN FACTS</th>
+                  <td>{{row[4]}}</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+        </div>
+</div>
+        <div class="col-lg-12 col-md-12">
+            <h1 class="text-color display-3 text-center">PHOTOS</h1><br>
+            <br/>
+
+          <section class="gallery-block grid-gallery">
+            <img src="./../static/images/background/blob.png" class="path-image4" alt="blob">
+                  <div class="row">
+                    {% for item in items %}
+                      <div class="col-md-6 col-lg-4 item mb-3">
+
+                          <a class="lightbox" href="{{item[0]}}">
+                              <img class="img-fluid image scale-on-hover mx-auto d-block" src="{{item[0]}}">
+                          </a>
+
+                      </div>
+                    {% endfor %}
+
+                    <!--  <div class="col-md-6 col-lg-4 item">
+                          <a class="lightbox" href="">
+                              <img class="img-fluid image scale-on-hover" src="">
+                          </a>
+                      </div>
+
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="../img/image9.jpg">
+                            <img class="img-fluid image scale-on-hover" src="../img/image9.jpg">
+                        </a>
+                    </div>-->
+                </div>
+            </div>
+
+        </section>
+
+        </div>
+      </div>
+      </div>
+  </div>
+{% endfor %}
+</div>
+
+
+<!-- javascript source-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+  baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
+
+    //back_to_top_button
+
+    const btnScrollToTop = document.querySelector("#btnScrollToTop");
+
+    btnScrollToTop.addEventListener("click", function() {
+
+      $("html, body").animate({ scrollTop: 0}, "slow");
+    });
+</script>
+
+
+{% endblock %} <!-- last letak lepas </html>-->

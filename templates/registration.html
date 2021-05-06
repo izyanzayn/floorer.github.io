@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FLOORER• learn Science through e-xploration</title>
+
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./../static/images/floorer.ico/apple-icon-76x76.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./../static/images/floorer.ico/favicon-96x96.png"
+    />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- cdn js and other -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Fonts & icons -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+      />
+      <link
+    href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Comfortaa:wght@500&family=Concert+One&family=Dokdo&family=East+Sea+Dokdo&family=Montserrat:wght@500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+  />
+
+    <!-- CSS Files -->
+    <link href="./../static/css/registration.css" rel="stylesheet" />
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+</script>-->
+
+
+
+</head>
+
+<div class="row">
+
+  <div class="form-structor">
+    <!-- Sign up Form -->
+
+	<div class="signup">
+		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+		<div class="form-holder">
+      <form action="/register2" method="POST">
+
+			<input type="text"  name="teacher_id" class="input" placeholder="Teacher ID" required />
+			<input type="email" name="teacher_email" class="input" placeholder="Email" required />
+			<input type="password" name="teacher_password" class="input" placeholder="Password" required />
+      <input type="password" name="teacher_password1" class="input" placeholder="Confirm Password" required />
+		</div>
+		<button type="submit" class="submit-btn">Sign up</button>
+  </form>
+	</div>
+
+  <!-- Log In Form -->
+	<div class="login slide-up">
+		<div class="center">
+			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
+			<div class="form-holder">
+        <form action="/login" method="POST">
+				<input type="text" name="teacher_id" class="input" placeholder="Teacher ID" required/>
+				<input type="password" name="teacher_password" class="input" placeholder="Password" required/>
+			</div>
+			<button type="submit" class="submit-btn">Log in</button>
+      </form>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<!-- javascript file -->
+  <script  src="./../static/js/registration.js"></script>

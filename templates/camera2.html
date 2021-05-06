@@ -1,0 +1,183 @@
+{% extends "base1.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IdentiMe• learn Science through e-xploration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <!-- CSS Files -->
+
+  <!--<link rel="stylesheet" href="./../static/css/style.css" />-->
+ <link rel="stylesheet" href="./../static/css/camera.css" />
+</head>
+
+<body class="camera-page" id="camera-page">
+
+  <!--<div class="page-header">
+
+<div class="container-fluid">
+<div class="row justify-content-center">
+  <div class="col-lg-12 col-md-12">
+      <h1 class="text-color display-3 text-center">Identify Plant's Name
+  <br/>
+      </h1>
+
+<!--<div class ="video" id="video" width="640" height="520"></div>
+  </div>
+</div>
+</div>
+</div>-->
+
+<div class="container-fluid">
+<section class="section-video">
+  <!--<div class="row justify-content-center">
+    <div class="col-md-5">-->
+
+
+
+<div id="video-canvas">
+
+{% block scripts %}
+{{ super() }}
+
+
+
+<script type="text/javascript">
+  // Classifier Variable
+  let classifier;
+  // Model URL
+  let imageModelURL = 'https://teachablemachine.withgoogle.com/models/2ScK7Ya2p/';
+//https://teachablemachine.withgoogle.com/models/2ScK7Ya2p/ ---- latest update (7/8/2020)
+  //https://teachablemachine.withgoogle.com/models/dCtzDCw_K/
+
+  //'https://teachablemachine.withgoogle.com/models/2ScK7Ya2p/' --- latest one!
+  //let imageModelURL = 'https://rb.gy/ddyonn';
+
+  let h1;
+  // Video
+  let video;
+  let flippedVideo;
+  // To store the classification
+  let label = "loading...";
+
+  //var myCanvas;
+
+  // Grab elements, create settings, etc.
+  //const video = document.getElementById('video');
+  document.getElementById('video');
+  // Create a webcam capture
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+      video.play();
+    })
+
+  // Load the model first
+  function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+  }
+
+  function setup() {
+    //text h1
+    let h1 = createElement('h3', "Identify Plant's Name");
+    h1.position(100,70);
+    h1.style("color", "#ffcd4f");
+    h1.style("padding", "20px");
+    h1.style("margin-top", "10px");
+    h1.style("margin-bottom", "10px");
+
+    //image girl hold tablet
+    //let img = createImg("./../static/images/img (10).png");
+    //img.position(0, 670);
+    //img.size(200,200);
+
+    //image blob
+    //let img1 = createImg("./../static/images/background/path2.png");
+    //img1.position(200,350);
+    //img1.size(300,300);
+    //img1.style("z-index", "-1");
+    //img1.style("opacity", "0.7");
+
+    //phone
+    let img2 = createImg("./../static/images/phone.png");
+    img2.position(30,100);
+    img2.size(375,750);
+    img2.style("padding", "10px")
+    img2.style("z-index", "-1");
+
+
+
+
+    //let myCanvas = createCanvas(620, 580);
+    let myCanvas = createCanvas(270, 500);
+    myCanvas.parent('video-canvas');
+    //myCanvas.style('display', 'block');
+    myCanvas.position(82,230);
+
+    // Create the video
+    video = createCapture(VIDEO);
+    video.size(270, 460);
+    video.hide();
+
+    flippedVideo = ml5.flipImage(video);
+    // Start classifying
+    classifyVideo();
+  }
+
+  function draw() {
+    background('#6fbf2a');
+    // Draw the video
+    image(flippedVideo, 0, 0);
+
+    // Draw the label
+    fill(255);
+    textFont('Montserrat');
+    textSize(24);
+    //textAlign(CENTER);
+
+    //text.position(50,50);
+    text(label, width / 100, height - 20);
+  }
+
+  // Get a prediction for the current video frame
+  function classifyVideo() {
+    flippedVideo = ml5.flipImage(video)
+    classifier.classify(flippedVideo, gotResult);
+    flippedVideo.remove();
+
+  }
+
+  // When we get a result
+  function gotResult(error, results) {
+    // If there is an error
+    if (error) {
+      console.error(error);
+      return;
+    }
+    // The results are in an array ordered by confidence.
+    // console.log(results[0]);
+    label = results[0].label;
+    // Classifiy again!
+    classifyVideo();
+  }
+
+
+</script>
+{% endblock %}
+
+</div>
+  </section>
+</div>
+
+
+
+{% endblock %}

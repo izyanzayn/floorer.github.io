@@ -1,0 +1,72 @@
+{% extends "base1.html" %}
+
+{% block content %}
+  <!DOCTYPE html>
+  <html lang="en">
+
+<head>
+<title>FLOORER• learn Science through e-xploration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- font-awesome -->
+
+  <script src="https://use.fontawesome.com/0856ab4841.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"/>
+
+      <link rel="stylesheet" href="./../static/css/memory_game.css"/>
+</head>
+
+
+  <!-- partial:index.partial.html -->
+  <div class="container">
+	   <header class="header">
+		     <h1>Welcome to Memory Game</h1>
+		       <h2>FLOORER</h2>
+	       </header>
+
+
+	<section class="score-panel">
+		<h3>Score Panel</h3>
+		<ul id="star-rating" class="star-rating">
+			<li class="star"><i class="fa fa-star"></i></li>
+			<li class="star"><i class="fa fa-star"></i></li>
+			<li class="star"><i class="fa fa-star"></i></li>
+		</ul>
+		<span class="moves-counter">0</span> Moves
+		<div class="timer-container">
+			<span class="timer"><i class="fa fa-hourglass-start"></i> Timer: 00:00</span>
+		</div>
+		<div class="reset">
+			<button class="btn reset-btn">Reset <i class="fa fa-repeat"></i></button>
+		</div>
+	</section>
+
+	<!-- Modal -->
+	<section class="win-game-modal">
+		<div id="modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2 class="text-dark">Congratulations!</h2>
+				<p class="text-dark">You have won the game and found all 8 pairs of cards.</p>
+        <button class="btn play-again-btn">Play Again?</button>
+			</div>
+		</div>
+	</section>
+
+	<ul class="plant">
+  </ul>
+  </div>
+
+
+
+  <!-- partial -->
+
+
+  <script  src="./../static/js/memory_game.js"></script>
+
+{% endblock %}

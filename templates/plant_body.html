@@ -1,0 +1,120 @@
+{% extends "base1.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FLOORER• learn Science through e-xploration</title>
+
+  <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="./../static/css/plant_body.css" />
+
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="./../static/plant_body1.js"></script>
+  <script>
+  var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+  function init() {
+  	canvas = document.getElementById("canvas");
+  	anim_container = document.getElementById("animation_container");
+  	dom_overlay_container = document.getElementById("dom_overlay_container");
+  	var comp=AdobeAn.getComposition("A762B41E2137884DB84EAF8676323A38");
+  	var lib=comp.getLibrary();
+  	var loader = new createjs.LoadQueue(false);
+  	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+  	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+  	var lib=comp.getLibrary();
+  	loader.loadManifest(lib.properties.manifest);
+  }
+  function handleFileLoad(evt, comp) {
+  	var images=comp.getImages();
+  	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+  }
+  function handleComplete(evt,comp) {
+  	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+  	var lib=comp.getLibrary();
+  	var ss=comp.getSpriteSheet();
+  	var queue = evt.target;
+  	var ssMetadata = lib.ssMetadata;
+  	for(i=0; i<ssMetadata.length; i++) {
+  		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+  	}
+  	var preloaderDiv = document.getElementById("_preload_div_");
+  	preloaderDiv.style.display = 'none';
+  	canvas.style.display = 'block';
+  	exportRoot = new lib.plant_body1();
+  	stage = new lib.Stage(canvas);
+  	stage.enableMouseOver();
+  	//Registers the "tick" event listener.
+  	fnStartAnimation = function() {
+  		stage.addChild(exportRoot);
+  		createjs.Ticker.framerate = lib.properties.fps;
+  		createjs.Ticker.addEventListener("tick", stage);
+  	}
+  	//Code to support hidpi screens and responsive scaling.
+  	AdobeAn.makeResponsive(true,'both',true,1,[canvas,preloaderDiv,anim_container,dom_overlay_container]);
+  	AdobeAn.compositionLoaded(lib.properties.id);
+  	fnStartAnimation();
+  }
+  </script>
+
+</head>
+
+  <!-- body content -->
+  <body onload="init();">
+    <img src="./../static/images/background/path6.png" class="path-image5" alt="blob">
+    <img src="./../static/images/background/blob.png" class="path-image6" alt="blob">
+<div class="content-center text-align-center">
+
+  <div class="row row-grid justify-content-center align-items-center text-center">
+    <div class="col-md-9">
+      <h1> parts of plant</h1>
+      <div class="row row-grid justify-content-between align-items-center">
+      <div class="col-md-12" id="description">
+      <p class="text-center text-dark">In this section we will learn about the parts of plant.</p>
+      <p class="text-center text-dark">Click on <span><i class="far fa-hand-point-up"></i></span> to learn more !</p>
+
+      </div>
+
+
+      </div>
+      <div class="justify-content-center mt-5" id="animation_container" style= width:826px; height:844px">
+        <canvas id="canvas" width="826" height="844" style="position: absolute; display: none;"></canvas>
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:826px; height:844px; position: absolute; left: 0px; top: 0px; display: none;">
+        </div>
+      </div>
+        <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:844px; width: 826px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src='./../static/images/_preloader.gif' style='vertical-align: middle; max-height: 100%'/></div>
+
+      </div>
+      </div>
+</div>
+
+    <!--<div class="content-center text-align-center">
+      <img src="./../static/images/background/path6.png" class="path2" alt="blob">
+    <div class="row row-grid justify-content-center align-items-center text-center">
+    <div id="zone-info"></div>
+    <div class="col-md-9">
+      <img src="./../static/images/New folder (2)/plant_body.png" usemap="#image_map">
+      <map name="image_map">
+          <area alt="leaves" title="leaves" coords="322,101,490,254" shape="rect" href="#" data-toggle="modal" data-target="#myModal"/>
+
+        <area alt="flower" title="flower" href="" coords="292,320,31" shape="circle">
+        <area alt="fruit" title="fruit" href="" coords="377,408,29" shape="circle">
+        <area alt="root" title="root" href="" coords="214,634,603,749" shape="rect">
+      </map>
+
+    <!--<img class="mx-auto d-block animate__animated animate__jackInTheBox" style="max-width:100%; height: auto;"  src="./../static/images/plant_body.png" alt="tree">
+</div>
+  </div>
+
+</div>-->
+
+<!--<script>-->
+ <!--</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+{% endblock %}

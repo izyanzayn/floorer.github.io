@@ -1,0 +1,72 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FLOORER• learn Science through e-xploration</title>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+<link
+  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Concert+One&family=Montserrat&display=swap"/>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+/>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="./../static/css/home_teacher.css"/>
+</head>
+
+<section class="section section-lg section-coins">
+<div class="page-header">
+
+<div class="container">
+
+    <div class="content-center">
+      <img src="./../static/images/background/path6.png" class="path9" alt="blob">
+      {% for user in users %}
+
+      <div class="row row-grid justify-content-between align-items-center text-left">
+        <div class="col-lg-6 col-md-6">
+          <h1 class="animate__animated animate__bounce display-3">Hi! Teacher
+            <br/>
+          </h1>
+          <p><span class="display-4">{{user[0]}}</span></p>
+          <!--<p class="text-white mb-3">your teacher id is: <span class="text-success">{{user[1]}}</span></p>-->
+          <p class="text-white mb-3">click here to manage your account <a href="/profile"><button type="button" name="button" class="btn btn-success"><i class="fas fa-user-edit"></i>Profile</button></a></p>
+
+          <div class="btn-wrapper mb-3">
+
+            <p class="category text-white d-inline">you can click here to go to main page</p>
+            <a href="/"><span><img src="./../static/images/floorer.ico/rsz_floorer_2.png" alt="main-page"></span></a>
+            <img src="./../static/images/teacher-1.png" alt="teacher-1" class="path-image2" id="teacher1">
+          </div>
+
+        </div>
+
+<!-- images right -->
+        <div class="col-lg-4 col-md-5">
+
+          <img src="./../static/images/floorer.ico/FLOORER 2.png" alt="logo" class="img-fluid" style="z-index:-3;">
+          <img src="./../static/images/teacher-2.png" alt="teacher-1" class="path-image3" id="teacher1">
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+</section>
+
+
+
+{% endblock %}
